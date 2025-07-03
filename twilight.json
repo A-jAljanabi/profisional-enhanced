@@ -1238,6 +1238,13 @@
             "icon": "sicon-store",
             "path": "src.home.main-links",
             "fields": []
+        },
+        {
+            "key": "08a472c0-cbfb-46b5-8a2b-897be0c7ae57",
+            "title": "enhanced-slider",
+            "icon": "sicon-store",
+            "path": "src.home.enhanced-slider",
+            "fields": []
         }
     ],
     "support_url": null,
