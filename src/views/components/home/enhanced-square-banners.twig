@@ -10,15 +10,65 @@
 | position                        | int      | Sorting number start from zero                                               |
 #}
 
-<section class="s-block s-block--banners container">
-    <div class="grid {{ component.banners|length <= 3 ? 'md:grid-cols-' ~ component.banners|length : 'md:grid-cols-3 two-row' }} grid-flow-row gap-3 sm:gap-8">
-        {% for index, banner in component.banners %}
-            <a  href="{{banner.url}}" aria-label={{banner.title ? banner.title : 'square-banner-' ~ index }} class="banner-entry lazy {{banner.title ? 'has-overlay' : ''}} {{ component.banners|length <= 3 ? "h-lg-banner" : "h-banner" }}" data-bg="{{ banner.image }}">
-                <article class="banner-entry__text text-with-border">
-                    <h3 class="banner__title font-bold mb-1 leading-6">{{banner.title}}</h3>
-                    <p class="banner__description">{{banner.description}}</p>
-                </article>
-            </a>
-        {% endfor %}
+{# Enhanced Square Banners Component - Salla Documentation Component #}
+{% if theme.settings.get('enhanced_square_banners_enabled', true) %}
+<section class="enhanced-square-banners animate-fade-in-up">
+    <div class="container">
+        <div class="section-header text-center mb-8">
+            <h2 class="section-title text-3xl font-bold mb-4">
+                {{ theme.settings.get('enhanced_square_banners_title', 'تصفح فئاتنا') }}
+            </h2>
+            <p class="section-description text-gray-600">
+                {{ theme.settings.get('enhanced_square_banners_description', 'اكتشف مجموعتنا المتنوعة من المنتجات') }}
+            </p>
+        </div>
+        
+        <div class="square-banners-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {% set banners = theme.settings.get('enhanced_square_banners_items', [
+                {
+                    'image': 'images/placeholder.png',
+                    'title': 'الإلكترونيات',
+                    'link': '/category/electronics',
+                    'description': 'أحدث الأجهزة الإلكترونية'
+                },
+                {
+                    'image': 'images/placeholder.png',
+                    'title': 'الهواتف',
+                    'link': '/category/phones',
+                    'description': 'هواتف ذكية عالية الجودة'
+                },
+                {
+                    'image': 'images/placeholder.png',
+                    'title': 'الحواسيب',
+                    'link': '/category/computers',
+                    'description': 'حواسيب محمولة وطاولية'
+                },
+                {
+                    'image': 'images/placeholder.png',
+                    'title': 'الإكسسوارات',
+                    'link': '/category/accessories',
+                    'description': 'إكسسوارات متنوعة'
+                }
+            ]) %}
+            
+            {% for banner in banners %}
+                <div class="square-banner-item group">
+                    <a href="{{ banner.link }}" class="square-banner-link block relative overflow-hidden rounded-xl">
+                        <div class="square-banner-image aspect-square overflow-hidden">
+                            <img src="{{ banner.image }}" 
+                                 alt="{{ banner.title }}" 
+                                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        </div>
+                        <div class="square-banner-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end">
+                            <div class="square-banner-content p-4 text-white">
+                                <h3 class="square-banner-title font-bold text-lg mb-1">{{ banner.title }}</h3>
+                                <p class="square-banner-description text-sm opacity-90">{{ banner.description }}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
     </div>
 </section>
+{% endif %}

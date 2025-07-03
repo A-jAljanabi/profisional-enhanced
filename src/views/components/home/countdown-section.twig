@@ -1,0 +1,38 @@
+{# Countdown Timer Section Component - Drag & Drop Ready Block #}
+{% if theme.settings.get('countdown_section_enabled', true) %}
+<section class="countdown-section animate-fade-in-up">
+    <div class="container">
+        <div class="countdown-timer" data-end-date="{{ theme.settings.get('countdown_end_date', '2024-12-31T23:59:59') }}">
+            <div class="countdown-title">
+                {{ theme.settings.get('countdown_title', 'عرض خاص! ينتهي قريباً') }}
+            </div>
+            <div class="countdown-description mb-6">
+                {{ theme.settings.get('countdown_description', 'احصل على خصم 30% على جميع المنتجات') }}
+            </div>
+            <div class="countdown-grid">
+                <div class="countdown-item">
+                    <span class="countdown-value">00</span>
+                    <span class="countdown-label">أيام</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value">00</span>
+                    <span class="countdown-label">ساعات</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value">00</span>
+                    <span class="countdown-label">دقائق</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value">00</span>
+                    <span class="countdown-label">ثواني</span>
+                </div>
+            </div>
+            <div class="countdown-actions mt-8">
+                <a href="{{ theme.settings.get('countdown_cta_link', '/products') }}" class="btn btn--large">
+                    {{ theme.settings.get('countdown_cta_text', 'تسوق الآن') }}
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %} 

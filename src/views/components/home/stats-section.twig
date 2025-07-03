@@ -1,0 +1,50 @@
+{# Statistics Section Component - Drag & Drop Ready Block #}
+{% if theme.settings.get('stats_section_enabled', true) %}
+<section class="stats-section animate-fade-in-up">
+    <div class="container">
+        <div class="section-header text-center mb-12">
+            <h2 class="section-title text-3xl font-bold mb-4">
+                {{ theme.settings.get('stats_section_title', 'أرقام تتحدث عن نفسها') }}
+            </h2>
+            <p class="section-description text-gray-600">
+                {{ theme.settings.get('stats_section_description', 'إنجازاتنا في خدمة عملائنا') }}
+            </p>
+        </div>
+        
+        <div class="stats-grid grid grid-cols-2 md:grid-cols-4 gap-8">
+            {% set stats = theme.settings.get('stats_items', [
+                {
+                    'number': '10000',
+                    'label': 'عميل سعيد',
+                    'icon': 'sicon-users'
+                },
+                {
+                    'number': '50000',
+                    'label': 'طلب مكتمل',
+                    'icon': 'sicon-shopping-cart'
+                },
+                {
+                    'number': '1000',
+                    'label': 'منتج متوفر',
+                    'icon': 'sicon-box'
+                },
+                {
+                    'number': '24',
+                    'label': 'ساعة دعم',
+                    'icon': 'sicon-headphones'
+                }
+            ]) %}
+            
+            {% for stat in stats %}
+                <div class="animated-counter text-center">
+                    <div class="counter-icon mb-4">
+                        <i class="{{ stat.icon }} text-4xl text-primary"></i>
+                    </div>
+                    <div class="counter-number" data-target="{{ stat.number }}">0</div>
+                    <div class="counter-label">{{ stat.label }}</div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %} 

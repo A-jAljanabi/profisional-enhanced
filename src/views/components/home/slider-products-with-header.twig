@@ -37,4 +37,115 @@
         ></salla-products-slider>
     </div>
 </section>
+
+{# Slider Products with Headers Component - Salla Documentation Component #}
+{% if theme.settings.get('slider_products_with_header_enabled', true) %}
+<section class="slider-products-with-header animate-fade-in-up">
+    <div class="container">
+        <div class="slider-header text-center mb-8">
+            <h2 class="slider-title text-3xl font-bold mb-4">
+                {{ theme.settings.get('slider_products_title', 'منتجات مميزة') }}
+            </h2>
+            <p class="slider-description text-gray-600 mb-6">
+                {{ theme.settings.get('slider_products_description', 'اكتشف أحدث المنتجات وأكثرها طلباً') }}
+            </p>
+            
+            {% if theme.settings.get('slider_products_show_view_all', true) %}
+                <a href="{{ theme.settings.get('slider_products_view_all_link', '/products') }}" 
+                   class="view-all-button btn btn--outline">
+                    {{ theme.settings.get('slider_products_view_all_text', 'عرض الكل') }}
+                </a>
+            {% endif %}
+        </div>
+        
+        <div class="products-slider-wrapper">
+            <salla-slider 
+                type="carousel" 
+                show-controls="{{ theme.settings.get('slider_products_show_controls', true) }}"
+                show-dots="{{ theme.settings.get('slider_products_show_dots', false) }}"
+                autoplay="{{ theme.settings.get('slider_products_autoplay', false) }}"
+                autoplay-speed="{{ theme.settings.get('slider_products_autoplay_speed', 3000) }}"
+                slides-to-show="{{ theme.settings.get('slider_products_slides_to_show', 4) }}"
+                class="products-slider">
+                
+                {% set featuredProducts = theme.settings.get('slider_products_items', [
+                    {
+                        'image': 'images/placeholder.png',
+                        'title': 'iPhone 15 Pro',
+                        'price': '4,999 ريال',
+                        'original_price': '5,999 ريال',
+                        'link': '/product/iphone-15-pro',
+                        'badge': 'جديد'
+                    },
+                    {
+                        'image': 'images/placeholder.png',
+                        'title': 'Samsung Galaxy S24',
+                        'price': '3,999 ريال',
+                        'original_price': '4,499 ريال',
+                        'link': '/product/samsung-galaxy-s24',
+                        'badge': 'خصم'
+                    },
+                    {
+                        'image': 'images/placeholder.png',
+                        'title': 'MacBook Pro M3',
+                        'price': '8,999 ريال',
+                        'original_price': '9,999 ريال',
+                        'link': '/product/macbook-pro-m3',
+                        'badge': 'حار'
+                    },
+                    {
+                        'image': 'images/placeholder.png',
+                        'title': 'AirPods Pro',
+                        'price': '999 ريال',
+                        'original_price': '1,199 ريال',
+                        'link': '/product/airpods-pro',
+                        'badge': 'توصية'
+                    }
+                ]) %}
+                
+                {% for product in featuredProducts %}
+                    <div class="product-slide">
+                        <div class="product-card salla-product-card">
+                            {% if product.badge %}
+                                <span class="badge badge--{{ product.badge == 'جديد' ? 'new' : (product.badge == 'خصم' ? 'sale' : 'hot') }}">
+                                    {{ product.badge }}
+                                </span>
+                            {% endif %}
+                            
+                            <div class="product-card__image">
+                                <img src="{{ product.image }}" 
+                                     alt="{{ product.title }}" 
+                                     class="product-card__img">
+                            </div>
+                            
+                            <div class="product-card__content p-4">
+                                <h3 class="product-card__name mb-2">
+                                    <a href="{{ product.link }}" class="product-card__name-link hover:text-primary transition-colors">
+                                        {{ product.title }}
+                                    </a>
+                                </h3>
+                                
+                                <div class="product-card__price mb-4">
+                                    {% if product.original_price and product.original_price != product.price %}
+                                        <span class="product-card__price-original line-through text-gray-400 text-sm">
+                                            {{ product.original_price }}
+                                        </span>
+                                    {% endif %}
+                                    <span class="product-card__price-current font-bold text-lg text-primary">
+                                        {{ product.price }}
+                                    </span>
+                                </div>
+                                
+                                <button class="product-card__add-to-cart btn w-full">
+                                    أضف للسلة
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </salla-slider>
+        </div>
+    </div>
+</section>
+{% endif %}
  

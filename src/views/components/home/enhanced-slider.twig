@@ -32,3 +32,82 @@
         </div>
     </salla-slider>
 </section> 
+
+{# Enhanced Slider Component - Salla Documentation Component #}
+{% if theme.settings.get('enhanced_slider_enabled', true) %}
+<section class="enhanced-slider-section animate-fade-in-up">
+    <div class="container">
+        <div class="section-header text-center mb-8">
+            <h2 class="section-title text-3xl font-bold mb-4">
+                {{ theme.settings.get('enhanced_slider_title', 'عروض خاصة') }}
+            </h2>
+            <p class="section-description text-gray-600">
+                {{ theme.settings.get('enhanced_slider_description', 'اكتشف أحدث العروض والمنتجات المميزة') }}
+            </p>
+        </div>
+        
+        <div class="enhanced-slider-wrapper relative">
+            <salla-slider 
+                type="carousel" 
+                show-controls="{{ theme.settings.get('enhanced_slider_show_controls', true) }}"
+                show-dots="{{ theme.settings.get('enhanced_slider_show_dots', true) }}"
+                autoplay="{{ theme.settings.get('enhanced_slider_autoplay', true) }}"
+                autoplay-speed="{{ theme.settings.get('enhanced_slider_autoplay_speed', 5000) }}"
+                class="enhanced-slider">
+                
+                {% set sliderItems = theme.settings.get('enhanced_slider_items', [
+                    {
+                        'image': 'images/placeholder.png',
+                        'title': 'عرض خاص على الهواتف',
+                        'description': 'خصم يصل إلى 30% على جميع الهواتف الذكية',
+                        'link': '/category/phones',
+                        'button_text': 'تسوق الآن',
+                        'overlay_color': 'bg-blue-500/20'
+                    },
+                    {
+                        'image': 'images/placeholder.png',
+                        'title': 'أحدث الحواسيب المحمولة',
+                        'description': 'حواسيب محمولة عالية الأداء بأسعار منافسة',
+                        'link': '/category/laptops',
+                        'button_text': 'اكتشف المزيد',
+                        'overlay_color': 'bg-green-500/20'
+                    },
+                    {
+                        'image': 'images/placeholder.png',
+                        'title': 'إكسسوارات متنوعة',
+                        'description': 'إكسسوارات عالية الجودة لجميع الأجهزة',
+                        'link': '/category/accessories',
+                        'button_text': 'تصفح الإكسسوارات',
+                        'overlay_color': 'bg-purple-500/20'
+                    }
+                ]) %}
+                
+                {% for item in sliderItems %}
+                    <div class="enhanced-slider-item relative overflow-hidden rounded-2xl">
+                        <div class="enhanced-slider-image aspect-[16/9] relative">
+                            <img src="{{ item.image }}" 
+                                 alt="{{ item.title }}" 
+                                 class="w-full h-full object-cover">
+                            
+                            <div class="enhanced-slider-overlay absolute inset-0 {{ item.overlay_color }} flex items-center">
+                                <div class="enhanced-slider-content text-center text-white p-8 w-full">
+                                    <h3 class="enhanced-slider-title text-3xl md:text-4xl font-bold mb-4">
+                                        {{ item.title }}
+                                    </h3>
+                                    <p class="enhanced-slider-description text-lg mb-6 opacity-90">
+                                        {{ item.description }}
+                                    </p>
+                                    <a href="{{ item.link }}" 
+                                       class="enhanced-slider-button btn btn--large bg-white text-gray-900 hover:bg-gray-100">
+                                        {{ item.button_text }}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </salla-slider>
+        </div>
+    </div>
+</section>
+{% endif %} 

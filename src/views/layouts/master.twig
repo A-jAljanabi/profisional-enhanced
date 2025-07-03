@@ -138,6 +138,40 @@
     {% component 'footer.footer' %}
 </div>
 {% hook 'body:end' %}
+
+{# Floating Action Buttons #}
+<div class="floating-actions">
+    {% if theme.settings.get('whatsapp_button_enabled', true) %}
+        <button class="floating-btn floating-btn--whatsapp" title="تواصل معنا عبر واتساب">
+            <i class="sicon-whatsapp text-xl"></i>
+        </button>
+    {% endif %}
+    
+    {% if theme.settings.get('chat_button_enabled', true) %}
+        <button class="floating-btn floating-btn--chat" title="الدردشة المباشرة">
+            <i class="sicon-message-circle text-xl"></i>
+        </button>
+    {% endif %}
+    
+    <button class="floating-btn floating-btn--scroll-top" title="العودة للأعلى" style="display: none;">
+        <i class="sicon-arrow-up text-xl"></i>
+    </button>
+</div>
+
+{# Newsletter Popup #}
+{% if theme.settings.get('newsletter_popup_enabled', true) %}
+    <div class="newsletter-backdrop"></div>
+    <div class="newsletter-popup">
+        <button class="newsletter-close">&times;</button>
+        <h3 class="newsletter-title">{{ theme.settings.get('newsletter_title', 'اشترك في النشرة الإخبارية') }}</h3>
+        <p class="newsletter-description">{{ theme.settings.get('newsletter_description', 'احصل على آخر العروض والمنتجات الجديدة') }}</p>
+        <form class="newsletter-form">
+            <input type="email" class="newsletter-input" placeholder="بريدك الإلكتروني" required>
+            <button type="submit" class="btn">{{ theme.settings.get('newsletter_button_text', 'اشتراك') }}</button>
+        </form>
+    </div>
+{% endif %}
+
 <script defer src="{{ 'app.js' | asset }}"></script>
 
 {# Twilight Components #}

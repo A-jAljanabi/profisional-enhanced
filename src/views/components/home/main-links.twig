@@ -49,4 +49,67 @@
           </div>
       </salla-slider>
     </div>
-</section> 
+</section>
+
+{# Main Links Component - Salla Documentation Component #}
+{% if theme.settings.get('main_links_enabled', true) %}
+<section class="main-links-section animate-fade-in-up">
+    <div class="container">
+        <div class="main-links-grid grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            {% set mainLinks = theme.settings.get('main_links_items', [
+                {
+                    'icon': 'sicon-home',
+                    'title': 'الرئيسية',
+                    'link': '/',
+                    'color': 'bg-blue-500'
+                },
+                {
+                    'icon': 'sicon-shopping-cart',
+                    'title': 'المنتجات',
+                    'link': '/products',
+                    'color': 'bg-green-500'
+                },
+                {
+                    'icon': 'sicon-award-ribbon',
+                    'title': 'العلامات التجارية',
+                    'link': '/brands',
+                    'color': 'bg-purple-500'
+                },
+                {
+                    'icon': 'sicon-chat-bubbles',
+                    'title': 'آراء العملاء',
+                    'link': '/testimonials',
+                    'color': 'bg-yellow-500'
+                },
+                {
+                    'icon': 'sicon-phone',
+                    'title': 'اتصل بنا',
+                    'link': '/contact',
+                    'color': 'bg-red-500'
+                },
+                {
+                    'icon': 'sicon-info-circle',
+                    'title': 'من نحن',
+                    'link': '/about',
+                    'color': 'bg-indigo-500'
+                }
+            ]) %}
+            
+            {% for link in mainLinks %}
+                <a href="{{ link.link }}" class="main-link-item group">
+                    <div class="main-link-content text-center p-4 rounded-lg transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                        <div class="main-link-icon mb-3">
+                            <div class="icon-wrapper w-12 h-12 mx-auto rounded-full {{ link.color }} flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
+                                <i class="{{ link.icon }} text-xl"></i>
+                            </div>
+                        </div>
+                        <h3 class="main-link-title font-semibold text-sm text-gray-700 group-hover:text-primary transition-colors duration-300">
+                            {{ link.title }}
+                        </h3>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %} 

@@ -4,10 +4,131 @@
 | products        | Products[] |                                |
 | position        | Int        | Sorting number start from zero |
 #}
-<section class="s-block s-block--latest-products container mt-6 sm:mt-8">
-    <div class="s-block__title">
-      <h2>{{ trans('blocks.home.latest_products') }}</h2>
+{% if theme.settings.get('latest_products_enabled', true) %}
+<section class="latest-products-section animate-fade-in-up">
+    <div class="container">
+        <div class="section-header text-center mb-8">
+            <h2 class="section-title text-3xl font-bold mb-4">
+                {{ theme.settings.get('latest_products_title', 'أحدث المنتجات') }}
+            </h2>
+            <p class="section-description text-gray-600">
+                {{ theme.settings.get('latest_products_description', 'اكتشف أحدث المنتجات المضافة إلى متجرنا') }}
+            </p>
+        </div>
+        
+        <div class="latest-products-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {% set latestProducts = theme.settings.get('latest_products_items', [
+                {
+                    'image': 'images/placeholder.png',
+                    'title': 'Apple Watch Series 9',
+                    'price': '2,499 ريال',
+                    'original_price': '2,799 ريال',
+                    'link': '/product/apple-watch-series-9',
+                    'badge': 'جديد',
+                    'rating': 5,
+                    'reviews_count': 128
+                },
+                {
+                    'image': 'images/placeholder.png',
+                    'title': 'Sony WH-1000XM5',
+                    'price': '1,899 ريال',
+                    'original_price': '2,199 ريال',
+                    'link': '/product/sony-wh-1000xm5',
+                    'badge': 'خصم',
+                    'rating': 4,
+                    'reviews_count': 89
+                },
+                {
+                    'image': 'images/placeholder.png',
+                    'title': 'iPad Air 5th Gen',
+                    'price': '3,299 ريال',
+                    'original_price': '3,599 ريال',
+                    'link': '/product/ipad-air-5th-gen',
+                    'badge': 'حار',
+                    'rating': 5,
+                    'reviews_count': 156
+                },
+                {
+                    'image': 'images/placeholder.png',
+                    'title': 'Samsung Galaxy Tab S9',
+                    'price': '2,899 ريال',
+                    'original_price': '3,199 ريال',
+                    'link': '/product/samsung-galaxy-tab-s9',
+                    'badge': 'توصية',
+                    'rating': 4,
+                    'reviews_count': 67
+                }
+            ]) %}
+            
+            {% for product in latestProducts %}
+                <div class="latest-product-item">
+                    <div class="product-card salla-product-card">
+                        {% if product.badge %}
+                            <span class="badge badge--{{ product.badge == 'جديد' ? 'new' : (product.badge == 'خصم' ? 'sale' : 'hot') }}">
+                                {{ product.badge }}
+                            </span>
+                        {% endif %}
+                        
+                        <div class="product-card__image">
+                            <img src="{{ product.image }}" 
+                                 alt="{{ product.title }}" 
+                                 class="product-card__img">
+                        </div>
+                        
+                        <div class="product-card__content p-4">
+                            <h3 class="product-card__name mb-2">
+                                <a href="{{ product.link }}" class="product-card__name-link hover:text-primary transition-colors">
+                                    {{ product.title }}
+                                </a>
+                            </h3>
+                            
+                            <!-- Rating Stars -->
+                            <div class="product-rating mb-3">
+                                <div class="stars flex gap-1">
+                                    {% for i in 1..5 %}
+                                        <span class="star text-sm {{ i <= product.rating ? 'text-yellow-400' : 'text-gray-300' }}">
+                                            ★
+                                        </span>
+                                    {% endfor %}
+                                </div>
+                                <span class="reviews-count text-xs text-gray-500 ml-2">
+                                    ({{ product.reviews_count }})
+                                </span>
+                            </div>
+                            
+                            <div class="product-card__price mb-4">
+                                {% if product.original_price and product.original_price != product.price %}
+                                    <span class="product-card__price-original line-through text-gray-400 text-sm">
+                                        {{ product.original_price }}
+                                    </span>
+                                {% endif %}
+                                <span class="product-card__price-current font-bold text-lg text-primary">
+                                    {{ product.price }}
+                                </span>
+                            </div>
+                            
+                            <div class="product-actions flex gap-2">
+                                <button class="product-card__add-to-cart btn flex-1">
+                                    أضف للسلة
+                                </button>
+                                <button class="quick-action-btn" title="أضف للمفضلة">
+                                    <i class="sicon-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        
+        {% if theme.settings.get('latest_products_show_view_all', true) %}
+            <div class="text-center mt-8">
+                <a href="{{ theme.settings.get('latest_products_view_all_link', '/products') }}" 
+                   class="view-all-button btn btn--outline btn--large">
+                    {{ theme.settings.get('latest_products_view_all_text', 'عرض جميع المنتجات') }}
+                </a>
+            </div>
+        {% endif %}
     </div>
-    
-    <salla-products-list source="latest"></salla-products-list>
-</section> 
+</section>
+{% endif %} 

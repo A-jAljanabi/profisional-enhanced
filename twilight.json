@@ -1205,6 +1205,385 @@
             ]
         }
     ],
+    "settings": [
+        {
+            "type": "static",
+            "format": "title",
+            "id": "enhanced-features-title",
+            "value": "الميزات المتقدمة",
+            "variant": "h6"
+        },
+        {
+            "type": "boolean",
+            "id": "faq_section_enabled",
+            "label": "تفعيل قسم الأسئلة الشائعة",
+            "format": "switch",
+            "value": true
+        },
+        {
+            "type": "string",
+            "id": "faq_section_title",
+            "label": "عنوان قسم الأسئلة الشائعة",
+            "format": "text",
+            "value": "الأسئلة الشائعة"
+        },
+        {
+            "type": "string",
+            "id": "faq_section_description",
+            "label": "وصف قسم الأسئلة الشائعة",
+            "format": "textarea",
+            "value": "إجابات على أكثر الأسئلة شيوعاً"
+        },
+        {
+            "type": "boolean",
+            "id": "testimonials_section_enabled",
+            "label": "تفعيل قسم آراء العملاء",
+            "format": "switch",
+            "value": true
+        },
+        {
+            "type": "string",
+            "id": "testimonials_section_title",
+            "label": "عنوان قسم آراء العملاء",
+            "format": "text",
+            "value": "آراء عملائنا"
+        },
+        {
+            "type": "string",
+            "id": "testimonials_section_description",
+            "label": "وصف قسم آراء العملاء",
+            "format": "textarea",
+            "value": "ماذا يقول عملاؤنا عن تجربتهم معنا"
+        },
+        {
+            "type": "boolean",
+            "id": "countdown_section_enabled",
+            "label": "تفعيل عداد التنازل",
+            "format": "switch",
+            "value": true
+        },
+        {
+            "type": "string",
+            "id": "countdown_title",
+            "label": "عنوان عداد التنازل",
+            "format": "text",
+            "value": "عرض خاص! ينتهي قريباً"
+        },
+        {
+            "type": "string",
+            "id": "countdown_description",
+            "label": "وصف عداد التنازل",
+            "format": "textarea",
+            "value": "احصل على خصم 30% على جميع المنتجات"
+        },
+        {
+            "type": "string",
+            "id": "countdown_end_date",
+            "label": "تاريخ انتهاء العرض",
+            "format": "datetime",
+            "value": "2024-12-31T23:59:59"
+        },
+        {
+            "type": "string",
+            "id": "countdown_cta_text",
+            "label": "نص زر عداد التنازل",
+            "format": "text",
+            "value": "تسوق الآن"
+        },
+        {
+            "type": "string",
+            "id": "countdown_cta_link",
+            "label": "رابط زر عداد التنازل",
+            "format": "text",
+            "value": "/products"
+        },
+        {
+            "type": "boolean",
+            "id": "stats_section_enabled",
+            "label": "تفعيل قسم الإحصائيات",
+            "format": "switch",
+            "value": true
+        },
+        {
+            "type": "string",
+            "id": "stats_section_title",
+            "label": "عنوان قسم الإحصائيات",
+            "format": "text",
+            "value": "أرقام تتحدث عن نفسها"
+        },
+        {
+            "type": "string",
+            "id": "stats_section_description",
+            "label": "وصف قسم الإحصائيات",
+            "format": "textarea",
+            "value": "إنجازاتنا في خدمة عملائنا"
+        },
+        {
+            "type": "static",
+            "format": "title",
+            "id": "floating-buttons-title",
+            "value": "الأزرار العائمة",
+            "variant": "h6"
+        },
+        {
+            "type": "boolean",
+            "id": "whatsapp_button_enabled",
+            "label": "تفعيل زر الواتساب",
+            "format": "switch",
+            "value": true
+        },
+        {
+            "type": "boolean",
+            "id": "chat_button_enabled",
+            "label": "تفعيل زر الدردشة",
+            "format": "switch",
+            "value": true
+        },
+        {
+            "type": "static",
+            "format": "title",
+            "id": "newsletter-title",
+            "value": "النشرة الإخبارية",
+            "variant": "h6"
+        },
+        {
+            "type": "boolean",
+            "id": "newsletter_popup_enabled",
+            "label": "تفعيل نافذة النشرة الإخبارية",
+            "format": "switch",
+            "value": true
+        },
+        {
+            "type": "string",
+            "id": "newsletter_title",
+            "label": "عنوان النشرة الإخبارية",
+            "format": "text",
+            "value": "اشترك في النشرة الإخبارية"
+        },
+        {
+            "type": "string",
+            "id": "newsletter_description",
+            "label": "وصف النشرة الإخبارية",
+            "format": "textarea",
+            "value": "احصل على آخر العروض والمنتجات الجديدة"
+        },
+        {
+            "type": "string",
+            "id": "newsletter_button_text",
+            "label": "نص زر الاشتراك",
+            "format": "text",
+            "value": "اشتراك"
+        },
+        {
+            "type": "static",
+            "format": "title",
+            "id": "salla-components-title",
+            "value": "مكونات Salla الرسمية",
+            "variant": "h6"
+        },
+        {
+            "type": "boolean",
+            "id": "enhanced_square_banners_enabled",
+            "label": "تفعيل البانرات المربعة المحسنة",
+            "format": "switch",
+            "value": true
+        },
+        {
+            "type": "string",
+            "id": "enhanced_square_banners_title",
+            "label": "عنوان البانرات المربعة",
+            "format": "text",
+            "value": "تصفح فئاتنا"
+        },
+        {
+            "type": "string",
+            "id": "enhanced_square_banners_description",
+            "label": "وصف البانرات المربعة",
+            "format": "textarea",
+            "value": "اكتشف مجموعتنا المتنوعة من المنتجات"
+        },
+        {
+            "type": "boolean",
+            "id": "main_links_enabled",
+            "label": "تفعيل الروابط الرئيسية",
+            "format": "switch",
+            "value": true
+        },
+        {
+            "type": "boolean",
+            "id": "enhanced_slider_enabled",
+            "label": "تفعيل السلايدر المحسن",
+            "format": "switch",
+            "value": true
+        },
+        {
+            "type": "string",
+            "id": "enhanced_slider_title",
+            "label": "عنوان السلايدر المحسن",
+            "format": "text",
+            "value": "عروض خاصة"
+        },
+        {
+            "type": "string",
+            "id": "enhanced_slider_description",
+            "label": "وصف السلايدر المحسن",
+            "format": "textarea",
+            "value": "اكتشف أحدث العروض والمنتجات المميزة"
+        },
+        {
+            "type": "boolean",
+            "id": "enhanced_slider_show_controls",
+            "label": "إظهار أزرار التحكم في السلايدر",
+            "format": "switch",
+            "value": true
+        },
+        {
+            "type": "boolean",
+            "id": "enhanced_slider_show_dots",
+            "label": "إظهار النقاط في السلايدر",
+            "format": "switch",
+            "value": true
+        },
+        {
+            "type": "boolean",
+            "id": "enhanced_slider_autoplay",
+            "label": "تشغيل السلايدر تلقائياً",
+            "format": "switch",
+            "value": true
+        },
+        {
+            "type": "number",
+            "id": "enhanced_slider_autoplay_speed",
+            "label": "سرعة التشغيل التلقائي (بالمللي ثانية)",
+            "format": "integer",
+            "value": 5000,
+            "minimum": 1000,
+            "maximum": 10000
+        },
+        {
+            "type": "boolean",
+            "id": "slider_products_with_header_enabled",
+            "label": "تفعيل سلايدر المنتجات مع العنوان",
+            "format": "switch",
+            "value": true
+        },
+        {
+            "type": "string",
+            "id": "slider_products_title",
+            "label": "عنوان سلايدر المنتجات",
+            "format": "text",
+            "value": "منتجات مميزة"
+        },
+        {
+            "type": "string",
+            "id": "slider_products_description",
+            "label": "وصف سلايدر المنتجات",
+            "format": "textarea",
+            "value": "اكتشف أحدث المنتجات وأكثرها طلباً"
+        },
+        {
+            "type": "boolean",
+            "id": "slider_products_show_view_all",
+            "label": "إظهار زر عرض الكل في سلايدر المنتجات",
+            "format": "switch",
+            "value": true
+        },
+        {
+            "type": "string",
+            "id": "slider_products_view_all_text",
+            "label": "نص زر عرض الكل",
+            "format": "text",
+            "value": "عرض الكل"
+        },
+        {
+            "type": "string",
+            "id": "slider_products_view_all_link",
+            "label": "رابط زر عرض الكل",
+            "format": "text",
+            "value": "/products"
+        },
+        {
+            "type": "boolean",
+            "id": "slider_products_show_controls",
+            "label": "إظهار أزرار التحكم في سلايدر المنتجات",
+            "format": "switch",
+            "value": true
+        },
+        {
+            "type": "boolean",
+            "id": "slider_products_show_dots",
+            "label": "إظهار النقاط في سلايدر المنتجات",
+            "format": "switch",
+            "value": false
+        },
+        {
+            "type": "boolean",
+            "id": "slider_products_autoplay",
+            "label": "تشغيل سلايدر المنتجات تلقائياً",
+            "format": "switch",
+            "value": false
+        },
+        {
+            "type": "number",
+            "id": "slider_products_autoplay_speed",
+            "label": "سرعة التشغيل التلقائي لسلايدر المنتجات",
+            "format": "integer",
+            "value": 3000,
+            "minimum": 1000,
+            "maximum": 10000
+        },
+        {
+            "type": "number",
+            "id": "slider_products_slides_to_show",
+            "label": "عدد الشرائح المعروضة في سلايدر المنتجات",
+            "format": "integer",
+            "value": 4,
+            "minimum": 1,
+            "maximum": 6
+        },
+        {
+            "type": "boolean",
+            "id": "latest_products_enabled",
+            "label": "تفعيل أحدث المنتجات",
+            "format": "switch",
+            "value": true
+        },
+        {
+            "type": "string",
+            "id": "latest_products_title",
+            "label": "عنوان أحدث المنتجات",
+            "format": "text",
+            "value": "أحدث المنتجات"
+        },
+        {
+            "type": "string",
+            "id": "latest_products_description",
+            "label": "وصف أحدث المنتجات",
+            "format": "textarea",
+            "value": "اكتشف أحدث المنتجات المضافة إلى متجرنا"
+        },
+        {
+            "type": "boolean",
+            "id": "latest_products_show_view_all",
+            "label": "إظهار زر عرض الكل في أحدث المنتجات",
+            "format": "switch",
+            "value": true
+        },
+        {
+            "type": "string",
+            "id": "latest_products_view_all_text",
+            "label": "نص زر عرض الكل في أحدث المنتجات",
+            "format": "text",
+            "value": "عرض جميع المنتجات"
+        },
+        {
+            "type": "string",
+            "id": "latest_products_view_all_link",
+            "label": "رابط زر عرض الكل في أحدث المنتجات",
+            "format": "text",
+            "value": "/products"
+        }
+    ],
     "support_url": null,
     "description": {
         "ar": "قالب احترافي متطور لمتاجر الإلكترونيات مع دعم كامل للغة العربية والتصميم المتجاوب",

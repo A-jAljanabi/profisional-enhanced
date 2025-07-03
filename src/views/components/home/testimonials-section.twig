@@ -1,0 +1,69 @@
+{# Testimonials Section Component - Drag & Drop Ready Block #}
+{% if theme.settings.get('testimonials_section_enabled', true) %}
+<section class="testimonials-section animate-fade-in-up">
+    <div class="container">
+        <div class="section-header text-center mb-8">
+            <h2 class="section-title text-3xl font-bold mb-4">
+                {{ theme.settings.get('testimonials_section_title', 'آراء عملائنا') }}
+            </h2>
+            <p class="section-description text-gray-600">
+                {{ theme.settings.get('testimonials_section_description', 'ماذا يقول عملاؤنا عن تجربتهم معنا') }}
+            </p>
+        </div>
+        
+        <div class="salla-testimonials">
+            {% set testimonials = theme.settings.get('testimonial_items', [
+                {
+                    'text': 'تجربة رائعة! المنتجات أصلية والسعر ممتاز. التوصيل كان سريع جداً.',
+                    'author': 'أحمد محمد',
+                    'rating': 5
+                },
+                {
+                    'text': 'خدمة عملاء ممتازة، ساعدوني في اختيار المنتج المناسب. أنصح الجميع بالتسوق من هنا.',
+                    'author': 'فاطمة علي',
+                    'rating': 5
+                },
+                {
+                    'text': 'المنتجات عالية الجودة والأسعار منافسة. سأعود للتسوق مرة أخرى.',
+                    'author': 'خالد عبدالله',
+                    'rating': 4
+                },
+                {
+                    'text': 'موقع سهل الاستخدام والدفع آمن. التوصيل وصل في الوقت المحدد.',
+                    'author': 'نورا أحمد',
+                    'rating': 5
+                },
+                {
+                    'text': 'أفضل متجر إلكتروني للتكنولوجيا في المملكة. منتجات أصلية 100%.',
+                    'author': 'عمر حسن',
+                    'rating': 5
+                }
+            ]) %}
+            
+            <div class="testimonials-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {% for testimonial in testimonials %}
+                    <div class="testimonial-item">
+                        <div class="testimonial-rating mb-4">
+                            {% for i in 1..5 %}
+                                <span class="star">
+                                    {% if i <= testimonial.rating %}
+                                        ★
+                                    {% else %}
+                                        ☆
+                                    {% endif %}
+                                </span>
+                            {% endfor %}
+                        </div>
+                        <div class="testimonial-text">
+                            "{{ testimonial.text }}"
+                        </div>
+                        <div class="testimonial-author">
+                            - {{ testimonial.author }}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %} 

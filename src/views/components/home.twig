@@ -1,0 +1,55 @@
+{# Main Home Component - Includes All Salla Documentation Components #}
+{% extends "layouts.master" %}
+
+{% block content %}
+    {# Enhanced Slider - Salla Documentation Component #}
+    {% include 'components.home.enhanced-slider' %}
+    
+    {# Main Links - Salla Documentation Component #}
+    {% include 'components.home.main-links' %}
+    
+    {# Enhanced Square Banners - Salla Documentation Component #}
+    {% include 'components.home.enhanced-square-banners' %}
+    
+    {# Slider Products with Header - Salla Documentation Component #}
+    {% include 'components.home.slider-products-with-header' %}
+    
+    {# Latest Products - Salla Documentation Component #}
+    {% include 'components.home.latest-products' %}
+    
+    {# Stats Section - Enhanced Feature #}
+    {% include 'components.home.stats-section' %}
+    
+    {# Countdown Timer - Enhanced Feature #}
+    {% include 'components.home.countdown-section' %}
+    
+    {# Testimonials Section - Enhanced Feature #}
+    {% include 'components.home.testimonials-section' %}
+    
+    {# FAQ Section - Enhanced Feature #}
+    {% include 'components.home.faq-section' %}
+    
+    {# Original Salla Components (if enabled) #}
+    {% if theme.settings.get('original_salla_components_enabled', false) %}
+        {# Fixed Banner #}
+        {% include 'components.home.fixed-banner' %}
+        
+        {# Fixed Products #}
+        {% include 'components.home.fixed-products' %}
+        
+        {# Photos Slider #}
+        {% include 'components.home.photos-slider' %}
+        
+        {# Square Photos #}
+        {% include 'components.home.square-photos' %}
+        
+        {# YouTube #}
+        {% include 'components.home.youtube' %}
+        
+        {# Brands #}
+        {% include 'components.home.brands' %}
+        
+        {# Testimonials (Original) #}
+        {% include 'components.home.testimonials' %}
+    {% endif %}
+{% endblock %} 

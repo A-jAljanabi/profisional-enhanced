@@ -1,0 +1,51 @@
+{# FAQ Section Component - Drag & Drop Ready Block #}
+{% if theme.settings.get('faq_section_enabled', true) %}
+<section class="faq-section animate-fade-in-up">
+    <div class="container">
+        <div class="section-header text-center mb-8">
+            <h2 class="section-title text-3xl font-bold mb-4">
+                {{ theme.settings.get('faq_section_title', 'الأسئلة الشائعة') }}
+            </h2>
+            <p class="section-description text-gray-600">
+                {{ theme.settings.get('faq_section_description', 'إجابات على أكثر الأسئلة شيوعاً') }}
+            </p>
+        </div>
+        
+        <div class="faq-accordion">
+            {% set faqs = theme.settings.get('faq_items', [
+                {
+                    'question': 'ما هي سياسة الإرجاع؟',
+                    'answer': 'يمكنك إرجاع أي منتج خلال 14 يوماً من تاريخ الشراء بشرط أن يكون بحالته الأصلية.'
+                },
+                {
+                    'question': 'كم تستغرق مدة الشحن؟',
+                    'answer': 'مدة الشحن تتراوح بين 1-3 أيام عمل داخل المملكة، و5-7 أيام للدول المجاورة.'
+                },
+                {
+                    'question': 'هل تقدمون خدمة التوصيل المجاني؟',
+                    'answer': 'نعم، نقدم التوصيل المجاني للطلبات التي تزيد قيمتها عن 200 ريال.'
+                },
+                {
+                    'question': 'كيف يمكنني تتبع طلبي؟',
+                    'answer': 'يمكنك تتبع طلبك من خلال رقم الطلب المرسل لك عبر البريد الإلكتروني أو الرسائل النصية.'
+                },
+                {
+                    'question': 'هل المنتجات أصلية وموثقة؟',
+                    'answer': 'نعم، جميع منتجاتنا أصلية 100% ومضمونة من الشركات المصنعة الرسمية.'
+                }
+            ]) %}
+            
+            {% for faq in faqs %}
+                <div class="faq-item">
+                    <button class="faq-question">
+                        {{ faq.question }}
+                    </button>
+                    <div class="faq-answer">
+                        {{ faq.answer }}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %} 
