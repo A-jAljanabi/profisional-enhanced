@@ -1245,6 +1245,13 @@
             "icon": "sicon-store",
             "path": "src.home.enhanced-slider",
             "fields": []
+        },
+        {
+            "key": "61a7ce93-57de-4394-bd83-be3bd3961663",
+            "title": "slider-products-with-header",
+            "icon": "sicon-store",
+            "path": "src.home.slider-products-with-header",
+            "fields": []
         }
     ],
     "support_url": null,
