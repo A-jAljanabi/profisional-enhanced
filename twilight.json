@@ -1231,6 +1231,13 @@
             "icon": "sicon-store",
             "path": "src.home.enhanced-square-banners",
             "fields": []
+        },
+        {
+            "key": "0e6f191b-1278-40f0-8a3b-61cd41cdc854",
+            "title": "main-links",
+            "icon": "sicon-store",
+            "path": "src.home.main-links",
+            "fields": []
         }
     ],
     "support_url": null,
